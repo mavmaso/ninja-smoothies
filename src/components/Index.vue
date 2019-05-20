@@ -17,60 +17,66 @@
 </template>
 
 <script>
-import db from '@/firebase/init'
+  import db from '@/firebase/init'
 
-export default {
-  name: 'Index',
-  data () {
-    return {
-      smoothies: []
-    }
-  },
-  methods: {
-    deleteSmoothie(id){
-      this.smoothies = this.smoothies.filter(smoothie => {
-        return smoothie.id != id
-      })
+  export default {
+    name: 'Index',
+    data() {
+      return {
+        smoothies: []
+      }
     },
-        created(){
+    methods: {
+      deleteSmoothie(id) {
+        this.smoothies = this.smoothies.filter(smoothie => {
+          return smoothie.id != id
+        })
+      }
+    },
+    created() {
+      console.log('Esperando')
       // fetch data
-      db.collection('smoothies').get()
+      db.collection('smothies').get()
         .then(snapshot => {
           snapshot.forEach(doc => {
-            console.log(doc)
+            console.log(doc.data())
           })
         })
     }
   }
-}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.index{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
-  margin-top: 60px;
-}
-.index h2{
-  font-size: 1.8em;
-  text-align: center;
-  margin-top: 0;
-}
-.index .ingredients{
-  margin: 30px auto;
-}
-.index .ingredients li{
-  display: inline;
-}
-.index .delete{
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  cursor: pointer;
-  color: #aaa;
-  font-size: 1.4em;
-}
+  .index {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    margin-top: 60px;
+  }
+
+  .index h2 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .index .ingredients {
+    margin: 30px auto;
+  }
+
+  .index .ingredients li {
+    display: inline;
+  }
+
+  .index .delete {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 1.4em;
+  }
 
 </style>
