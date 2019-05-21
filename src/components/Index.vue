@@ -34,12 +34,13 @@
       }
     },
     created() {
-      console.log('Esperando')
       // fetch data
       db.collection('smothies').get()
         .then(snapshot => {
           snapshot.forEach(doc => {
-            console.log(doc.data())
+            let smoothie = doc.data()
+            smoothie.id = doc.id
+            this.smoothies.push(smoothie)
           })
         })
     }
