@@ -6,6 +6,10 @@
         <label for="title">Smoothie Title:</label>
         <input type="text" name='title' v-model='title'>
       </div>
+      <div v-for="(ing, index) in ingredients" :key='index'>
+        <label for="ingredient">ingredient:</label>
+        <input type="text" name='ingredient' v-model="ingredients[index]">
+      </div>
       <div class="field add-ingredient">
         <label for="title">Add an ingredient:</label>
         <input type="text" name='dd an ingredient' @keydown.tab.prevent='addIng' v-model="another">
