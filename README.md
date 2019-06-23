@@ -1,5 +1,7 @@
 # ninja-smoothie
 
+https://ninja-smoothies-98992.firebaseapp.com
+
 > A Vue.js project
 
 ## Build Setup
