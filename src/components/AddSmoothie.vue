@@ -72,7 +72,7 @@ export default {
     },
     deleteIng(ing) {
       this.ingredients = this.ingredients.filter(ingredient => {
-        return ingredient != ing 
+        return ingredient != ing
       })
     }
   }
@@ -96,7 +96,7 @@ export default {
 .add-smoothie .delete{
   position: absolute;
   right: 0;
-  button: 16px;
+  bottom: 16px;
   color: #aaa;
   font-size: 1.4em;
   cursor: pointer;
